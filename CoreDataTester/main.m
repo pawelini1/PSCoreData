@@ -12,7 +12,13 @@
 
 int main(int argc, char *argv[])
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([PSAppDelegate class]));
+    @try {
+        @autoreleasepool {
+            return UIApplicationMain(argc, argv, nil, NSStringFromClass([PSAppDelegate class]));
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", [exception userInfo]);
+        NSLog(@"%@", [exception callStackSymbols]);
     }
 }

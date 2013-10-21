@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDB01DDD1815DE90006BF3C4 /* NSManagedObject+PSCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB01DDC1815DE90006BF3C4 /* NSManagedObject+PSCoreData.m */; };
 		EDBDC391181084BE004FED67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBDC390181084BE004FED67 /* UIKit.framework */; };
 		EDBDC393181084BE004FED67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBDC392181084BE004FED67 /* Foundation.framework */; };
 		EDBDC395181084BE004FED67 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBDC394181084BE004FED67 /* CoreGraphics.framework */; };
@@ -22,9 +23,14 @@
 		EDBDC3B2181084BE004FED67 /* CoreDataTester.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDBDC3B0181084BE004FED67 /* CoreDataTester.xcdatamodeld */; };
 		EDBDC3B5181084BE004FED67 /* PSMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBDC3B4181084BE004FED67 /* PSMasterViewController.m */; };
 		EDBDC3B8181084BE004FED67 /* PSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBDC3B7181084BE004FED67 /* PSDetailViewController.m */; };
+		EDBDC3C11810850A004FED67 /* PSCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBDC3C01810850A004FED67 /* PSCoreDataManager.m */; };
+		EDBDC3C418109425004FED67 /* PSFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBDC3C318109425004FED67 /* PSFetchedResultsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EDB01DDB1815DE90006BF3C4 /* NSManagedObject+PSCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+PSCoreData.h"; sourceTree = "<group>"; };
+		EDB01DDC1815DE90006BF3C4 /* NSManagedObject+PSCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+PSCoreData.m"; sourceTree = "<group>"; };
+		EDB01DDE1815DF51006BF3C4 /* PSCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCoreData.h; sourceTree = "<group>"; };
 		EDBDC38D181084BE004FED67 /* CoreDataTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDBDC390181084BE004FED67 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDBDC392181084BE004FED67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,6 +52,10 @@
 		EDBDC3B4181084BE004FED67 /* PSMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMasterViewController.m; sourceTree = "<group>"; };
 		EDBDC3B6181084BE004FED67 /* PSDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSDetailViewController.h; sourceTree = "<group>"; };
 		EDBDC3B7181084BE004FED67 /* PSDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSDetailViewController.m; sourceTree = "<group>"; };
+		EDBDC3BF1810850A004FED67 /* PSCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCoreDataManager.h; sourceTree = "<group>"; };
+		EDBDC3C01810850A004FED67 /* PSCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCoreDataManager.m; sourceTree = "<group>"; };
+		EDBDC3C218109425004FED67 /* PSFetchedResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchedResultsController.h; sourceTree = "<group>"; };
+		EDBDC3C318109425004FED67 /* PSFetchedResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchedResultsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +104,7 @@
 		EDBDC398181084BE004FED67 /* CoreDataTester */ = {
 			isa = PBXGroup;
 			children = (
+				EDBDC3BE181084EB004FED67 /* CoreDataManager */,
 				EDBDC3A1181084BE004FED67 /* PSAppDelegate.h */,
 				EDBDC3A2181084BE004FED67 /* PSAppDelegate.m */,
 				EDBDC3AA181084BE004FED67 /* MainStoryboard_iPhone.storyboard */,
@@ -120,6 +131,20 @@
 				EDBDC3A8181084BE004FED67 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDBDC3BE181084EB004FED67 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				EDB01DDE1815DF51006BF3C4 /* PSCoreData.h */,
+				EDBDC3BF1810850A004FED67 /* PSCoreDataManager.h */,
+				EDBDC3C01810850A004FED67 /* PSCoreDataManager.m */,
+				EDBDC3C218109425004FED67 /* PSFetchedResultsController.h */,
+				EDBDC3C318109425004FED67 /* PSFetchedResultsController.m */,
+				EDB01DDB1815DE90006BF3C4 /* NSManagedObject+PSCoreData.h */,
+				EDB01DDC1815DE90006BF3C4 /* NSManagedObject+PSCoreData.m */,
+			);
+			name = CoreDataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +220,9 @@
 				EDBDC3B2181084BE004FED67 /* CoreDataTester.xcdatamodeld in Sources */,
 				EDBDC3B5181084BE004FED67 /* PSMasterViewController.m in Sources */,
 				EDBDC3B8181084BE004FED67 /* PSDetailViewController.m in Sources */,
+				EDBDC3C11810850A004FED67 /* PSCoreDataManager.m in Sources */,
+				EDBDC3C418109425004FED67 /* PSFetchedResultsController.m in Sources */,
+				EDB01DDD1815DE90006BF3C4 /* NSManagedObject+PSCoreData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +320,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreDataTester/CoreDataTester-Prefix.pch";
 				INFOPLIST_FILE = "CoreDataTester/CoreDataTester-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -303,6 +332,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreDataTester/CoreDataTester-Prefix.pch";
 				INFOPLIST_FILE = "CoreDataTester/CoreDataTester-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -327,6 +357,7 @@
 				EDBDC3BD181084BE004FED67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

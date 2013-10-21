@@ -12,11 +12,9 @@
 
 #import <CoreData/CoreData.h>
 
-@interface PSMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface PSMasterViewController : UITableViewController <PSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) PSDetailViewController *detailViewController;
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) PSFetchedResultsController *fetchedResultsController;
 
 @end
