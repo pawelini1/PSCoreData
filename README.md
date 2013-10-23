@@ -1,0 +1,4 @@
+PSCoreData
+==========
+
+Core Data Manager 
