@@ -11,7 +11,7 @@
 
 @implementation PSFetchedResultsController
 
-@synthesize tableView, fetchDelegate;
+@synthesize tableView, fetchDelegate, releventKeys;
 
 -(id)initWithEntityName:(NSString *)entityName
      sectionNameKeyPath:(NSString *)sectionNameKeyPath

@@ -102,10 +102,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-//        self.detailViewController.detailItem = object;
-//    }
     NSManagedObjectContext *context = [[PSCoreDataManager sharedInstance] tempContext];
     NSManagedObject* object = [self.fetchedResultsController objectAtIndexPath:indexPath];
             NSManagedObjectID* objectID = [object realObjectID];
@@ -114,6 +110,7 @@
         NSManagedObject* obj = [context existingObjectWithID:objectID error:&error];
         if (obj) {
             [obj setValue:[NSNumber numberWithInt:arc4random() % 10] forKey:@"value"];
+            [obj setValue:[NSDate date] forKey:@"timeStamp"];
             [[PSCoreDataManager sharedInstance] saveContext:context];
         }
     }];
