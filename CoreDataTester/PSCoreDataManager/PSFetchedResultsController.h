@@ -20,7 +20,7 @@
     UITableView* tableView;
     
     __weak id<PSFetchedResultsControllerDelegate> fetchDelegate;
-    NSArray* releventKeys;
+    NSSet* releventKeys;
 }
 
 -(id)initWithEntityName:(NSString *)entityName
@@ -41,6 +41,6 @@
 
 @property(strong) UITableView* tableView;
 @property(weak) id<PSFetchedResultsControllerDelegate> fetchDelegate;
-@property(strong) NSArray* releventKeys;
+@property(strong) NSSet* releventKeys;
 
 @end

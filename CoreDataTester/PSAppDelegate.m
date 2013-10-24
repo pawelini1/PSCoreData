@@ -14,7 +14,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [PSCoreDataManager initializeCoreDataManagerWithStoreFilename:@"CoreDataTester.sqlite" andModelName:@"CoreDataTester"];
+    [PSCoreDataManager initializeCoreDataManagerWithStoreFilename:@"CoreDataTester.sqlite" andModelName:@"CoreDataTester" delegate:self];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -50,6 +50,12 @@
 {
     // Saves changes in the application's managed object context before the application terminates.
     [[PSCoreDataManager sharedInstance] saveIOContext];
+}
+
+#pragma mark - PSCoreDataManagerDelegate
+
+-(void)manager:(PSCoreDataManager *)manager didFailedToMigrateDataAtURL:(NSURL *)storeURL{
+    [manager performDefaultActionWhenMigrationFailedForURL:storeURL];
 }
 
 @end

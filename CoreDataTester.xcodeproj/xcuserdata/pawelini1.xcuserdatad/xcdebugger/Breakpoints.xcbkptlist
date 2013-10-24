@@ -7,13 +7,117 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "CoreDataTester/NSManagedObject+PSCoreData.m"
-         timestampString = "404088757.220262"
+         filePath = "CoreDataTester/PSFetchedResultsController.m"
+         timestampString = "404344752.392056"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "17"
-         endingLineNumber = "17"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
+         landmarkName = "-controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CoreDataTester/PSFetchedResultsController.m"
+         timestampString = "404344758.256507"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "112"
+         endingLineNumber = "112"
+         landmarkName = "-controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CoreDataTester/PSFetchedResultsController.m"
+         timestampString = "404344759.668167"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "115"
+         endingLineNumber = "115"
+         landmarkName = "-controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CoreDataTester/PSAppDelegate.m"
+         timestampString = "404345248.780727"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
+         landmarkName = "-manager:didFailedToMigrateDataAtURL:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CoreDataTester/PSCoreDataManager.m"
+         timestampString = "404345700.607531"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
+         landmarkName = "-persistentStoreCoordinator"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CoreDataTester/PSCoreDataManager.m"
+         timestampString = "404345849.680399"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "96"
+         endingLineNumber = "96"
+         landmarkName = "-persistentStoreCoordinator"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CoreDataTester/PSCoreDataManager.m"
+         timestampString = "404345850.610256"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
+         landmarkName = "-persistentStoreCoordinator"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CoreDataTester/NSManagedObject+PSCoreData.m"
+         timestampString = "404345879.426903"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "18"
+         endingLineNumber = "18"
          landmarkName = "-realObjectID"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CoreDataTester/PSFetchedResultsController.m"
+         timestampString = "404346002.476066"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "96"
+         endingLineNumber = "96"
+         landmarkName = "-controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

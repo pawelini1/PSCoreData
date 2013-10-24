@@ -101,13 +101,19 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            if ([self.fetchDelegate respondsToSelector:@selector(fetchController:configureCell:atIndexPath:)]) {
-                [self.fetchDelegate fetchController:self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+        {
+            if (self.releventKeys) {
+                NSManagedObject* object = (NSManagedObject*)anObject;
+                BOOL releventUpdate = [self.releventKeys intersectsSet:[NSSet setWithArray:object.changedKeys.allKeys]];
+                if (!releventUpdate)
+                    break;
             }
+            if ([self.fetchDelegate respondsToSelector:@selector(fetchController:configureCell:atIndexPath:)])
+                [self.fetchDelegate fetchController:self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             else
                 [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
-            
+        }
         case NSFetchedResultsChangeMove:
             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -118,6 +124,7 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
+    [self.fetchedObjects setValue:[NSDictionary dictionary] forKey:@"changedKeys"];
 }
 
 @end

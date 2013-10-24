@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Paweł Szymański. All rights reserved.
 //
 
-#ifndef CoreDataTester_PSCoreData_h
-#define CoreDataTester_PSCoreData_h
+#ifndef PSCoreData_h
+#define PSCoreData_h
 
 #import "PSCoreDataManager.h"
 #import "PSFetchedResultsController.h"

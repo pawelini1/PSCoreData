@@ -8,13 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+@class PSCoreDataManager;
+
+@protocol PSCoreDataManagerDelegate <NSObject>
+
+-(void)manager:(PSCoreDataManager*)manager didFailedToMigrateDataAtURL:(NSURL*)storeURL;
+
+@end
+
 @interface PSCoreDataManager : NSObject {
-    
+    __weak id<PSCoreDataManagerDelegate> delegate;
 }
 
-+ (void)initializeCoreDataManagerWithStoreFilename:(NSString*)_filename
-                                     andModelName:(NSString*)_modelName;
++(void)initializeCoreDataManagerWithStoreFilename:(NSString*)_filename
+                                     andModelName:(NSString*)_modelName
+                                         delegate:(id<PSCoreDataManagerDelegate>)_delegate;
 + (PSCoreDataManager*)sharedInstance;
+- (void)performDefaultActionWhenMigrationFailedForURL:(NSURL*)storeURL;
 
 - (void)saveContext:(NSManagedObjectContext*)ctx;
 - (void)saveContext:(NSManagedObjectContext*)ctx recursive:(BOOL)recursive;
@@ -32,5 +42,6 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) NSString *storeFilename;
 @property (strong, nonatomic) NSString *storeModelName;
+@property (weak, nonatomic) id<PSCoreDataManagerDelegate> delegate;
 
 @end

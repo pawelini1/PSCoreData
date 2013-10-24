@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PSAppDelegate : UIResponder <UIApplicationDelegate>
+@interface PSAppDelegate : UIResponder <UIApplicationDelegate, PSCoreDataManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -104,7 +104,7 @@
 		EDBDC398181084BE004FED67 /* CoreDataTester */ = {
 			isa = PBXGroup;
 			children = (
-				EDBDC3BE181084EB004FED67 /* CoreDataManager */,
+				EDBDC3BE181084EB004FED67 /* PSCoreDataManager */,
 				EDBDC3A1181084BE004FED67 /* PSAppDelegate.h */,
 				EDBDC3A2181084BE004FED67 /* PSAppDelegate.m */,
 				EDBDC3AA181084BE004FED67 /* MainStoryboard_iPhone.storyboard */,
@@ -133,7 +133,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EDBDC3BE181084EB004FED67 /* CoreDataManager */ = {
+		EDBDC3BE181084EB004FED67 /* PSCoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
 				EDB01DDE1815DF51006BF3C4 /* PSCoreData.h */,
@@ -144,7 +144,7 @@
 				EDB01DDB1815DE90006BF3C4 /* NSManagedObject+PSCoreData.h */,
 				EDB01DDC1815DE90006BF3C4 /* NSManagedObject+PSCoreData.m */,
 			);
-			name = CoreDataManager;
+			path = PSCoreDataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +322,7 @@
 				INFOPLIST_FILE = "CoreDataTester/CoreDataTester-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = CoreDataTester/PSCoreDataManager;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -334,6 +335,7 @@
 				INFOPLIST_FILE = "CoreDataTester/CoreDataTester-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = CoreDataTester/PSCoreDataManager;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

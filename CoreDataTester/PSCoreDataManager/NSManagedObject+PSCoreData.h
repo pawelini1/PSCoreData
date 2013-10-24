@@ -11,5 +11,8 @@
 @interface NSManagedObject (PSCoreData)
 
 -(NSManagedObjectID*)realObjectID;
+-(void)resetChangedKeys;
+
+@property(strong) NSDictionary* changedKeys;
 
 @end

@@ -82,17 +82,29 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        NSManagedObjectContext *context = [[PSCoreDataManager sharedInstance] tempContext];
+//        NSManagedObjectID* objectID = [[self.fetchedResultsController objectAtIndexPath:indexPath] realObjectID];
+//        [context performBlock:^{
+//            NSError* error = nil;
+//            NSManagedObject* obj = [context existingObjectWithID:objectID error:&error];
+//            if (obj) {
+//                [context deleteObject:obj];
+//                [[PSCoreDataManager sharedInstance] saveContext:context];
+//            }
+//        }];
+        
         NSManagedObjectContext *context = [[PSCoreDataManager sharedInstance] tempContext];
-        NSManagedObjectID* objectID = [[self.fetchedResultsController objectAtIndexPath:indexPath] realObjectID];
+        NSManagedObject* object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        NSManagedObjectID* objectID = [object realObjectID];
         [context performBlock:^{
             NSError* error = nil;
             NSManagedObject* obj = [context existingObjectWithID:objectID error:&error];
             if (obj) {
-                [context deleteObject:obj];
+                [obj setValue:[NSNumber numberWithInt:arc4random() % 10] forKey:@"notUsedInView"];
                 [[PSCoreDataManager sharedInstance] saveContext:context];
             }
         }];
-    }   
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
@@ -145,6 +157,7 @@
                                                  sortDescriptors:@[sortDescriptor]];
     _fetchedResultsController.tableView = self.tableView;
     _fetchedResultsController.fetchDelegate = self;
+    _fetchedResultsController.releventKeys = [NSSet setWithArray:@[@"timeStamp", @"value"]];
     return _fetchedResultsController;
 }
 
