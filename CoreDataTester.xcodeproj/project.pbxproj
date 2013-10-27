@@ -10,6 +10,7 @@
 		EDB9232D181DC12700A89620 /* NSManagedObject+PSCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB92327181DC12700A89620 /* NSManagedObject+PSCoreData.m */; };
 		EDB9232E181DC12700A89620 /* PSCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB9232A181DC12700A89620 /* PSCoreDataManager.m */; };
 		EDB9232F181DC12700A89620 /* PSFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB9232C181DC12700A89620 /* PSFetchedResultsController.m */; };
+		EDB92333181DC3BB00A89620 /* PSFakeSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB92332181DC3BB00A89620 /* PSFakeSyncManager.m */; };
 		EDBDC391181084BE004FED67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBDC390181084BE004FED67 /* UIKit.framework */; };
 		EDBDC393181084BE004FED67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBDC392181084BE004FED67 /* Foundation.framework */; };
 		EDBDC395181084BE004FED67 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBDC394181084BE004FED67 /* CoreGraphics.framework */; };
@@ -35,6 +36,8 @@
 		EDB9232A181DC12700A89620 /* PSCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCoreDataManager.m; sourceTree = "<group>"; };
 		EDB9232B181DC12700A89620 /* PSFetchedResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFetchedResultsController.h; sourceTree = "<group>"; };
 		EDB9232C181DC12700A89620 /* PSFetchedResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFetchedResultsController.m; sourceTree = "<group>"; };
+		EDB92331181DC3BB00A89620 /* PSFakeSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFakeSyncManager.h; sourceTree = "<group>"; };
+		EDB92332181DC3BB00A89620 /* PSFakeSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSFakeSyncManager.m; sourceTree = "<group>"; };
 		EDBDC38D181084BE004FED67 /* CoreDataTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDBDC390181084BE004FED67 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDBDC392181084BE004FED67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +90,15 @@
 			path = PSCoreDataManager;
 			sourceTree = "<group>";
 		};
+		EDB92330181DC39600A89620 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EDB92331181DC3BB00A89620 /* PSFakeSyncManager.h */,
+				EDB92332181DC3BB00A89620 /* PSFakeSyncManager.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		EDBDC384181084BE004FED67 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +130,7 @@
 		EDBDC398181084BE004FED67 /* CoreDataTester */ = {
 			isa = PBXGroup;
 			children = (
+				EDB92330181DC39600A89620 /* Helpers */,
 				EDB92325181DC0FF00A89620 /* PSCoreDataManager */,
 				EDBDC3A1181084BE004FED67 /* PSAppDelegate.h */,
 				EDBDC3A2181084BE004FED67 /* PSAppDelegate.m */,
@@ -223,6 +236,7 @@
 				EDB9232D181DC12700A89620 /* NSManagedObject+PSCoreData.m in Sources */,
 				EDB9232E181DC12700A89620 /* PSCoreDataManager.m in Sources */,
 				EDB9232F181DC12700A89620 /* PSFetchedResultsController.m in Sources */,
+				EDB92333181DC3BB00A89620 /* PSFakeSyncManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

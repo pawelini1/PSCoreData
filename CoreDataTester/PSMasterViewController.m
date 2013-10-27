@@ -8,6 +8,7 @@
 
 #import "PSMasterViewController.h"
 #import "PSDetailViewController.h"
+#import "PSFakeSyncManager.h"
 
 @interface PSMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -27,17 +28,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    [PSFakeSyncManager sharedInstance];
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    UIBarButtonItem *syncButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(simulateSync:)];
+    self.navigationItem.leftBarButtonItem = syncButton;
+    
     self.detailViewController = (PSDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)simulateSync:(id)sender
+{
+    [[PSFakeSyncManager sharedInstance] performSelector:@selector(simulateDataUpdate) withObject:nil afterDelay:5.0];
 }
 
 - (void)insertNewObject:(id)sender
@@ -170,6 +180,12 @@
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSString* str = [NSString stringWithFormat:@"%@ - %d", [[[object valueForKey:@"timeStamp"] description] substringToIndex:19], ((NSNumber*)[object valueForKey:@"value"]).intValue];
     cell.textLabel.text = str;
+}
+
+#pragma mark - Dealloc
+
+-(void)dealloc{
+    [NSObject cancelPreviousPerformRequestsWithTarget:[PSFakeSyncManager sharedInstance]];
 }
 
 @end

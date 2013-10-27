@@ -11,6 +11,7 @@
 @class PSDetailViewController;
 
 #import <CoreData/CoreData.h>
+#import "PSCoreData.h"
 
 @interface PSMasterViewController : UITableViewController <PSFetchedResultsControllerDelegate>
 

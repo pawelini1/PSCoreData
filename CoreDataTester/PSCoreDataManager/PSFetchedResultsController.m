@@ -8,10 +8,12 @@
 
 #import "PSFetchedResultsController.h"
 #import "PSCoreDataManager.h"
+#import "NSManagedObject+PSCoreData.h"
 
 @implementation PSFetchedResultsController
 
 @synthesize tableView, fetchDelegate, releventKeys;
+@synthesize reloadAnimated = _reloadAnimated;
 
 -(id)initWithEntityName:(NSString *)entityName
      sectionNameKeyPath:(NSString *)sectionNameKeyPath
@@ -68,14 +70,21 @@
 
 #pragma mark - NSFetchedResultsControllerDelegate
 
+static BOOL actualReloadAnimated;
+
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
+    actualReloadAnimated = self.reloadAnimated;
+    if(!actualReloadAnimated)
+        return;
     [self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
+    if(!actualReloadAnimated)
+        return;
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
@@ -90,7 +99,9 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
-{    
+{
+    if(!actualReloadAnimated)
+        return;
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -123,7 +134,10 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView endUpdates];
+    if(!actualReloadAnimated)
+        [self.tableView reloadData];
+    else
+        [self.tableView endUpdates];
     [self.fetchedObjects setValue:[NSDictionary dictionary] forKey:@"changedKeys"];
 }
 

@@ -40,7 +40,7 @@ static __strong PSCoreDataManager* instance = nil;
 }
 
 // Returns the managed object context for the application.
-// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+// If the context doesn't already exist, it is created and bound to the persistent store coordinator 0for the application.
 
 - (NSManagedObjectContext *)managedObjectContext
 {
@@ -165,6 +165,34 @@ static __strong PSCoreDataManager* instance = nil;
                 }];
         }
     }
+}
+
+#pragma mark - Fetching
+
+-(NSArray*)allObjectsForEntityName:(NSString*)entityName usingContext:(NSManagedObjectContext*)ctx{
+    return [self allObjectsForEntityName:entityName withPredicate:nil withSortDescriptors:nil usingContext:ctx];
+}
+
+-(NSArray*)allObjectsForEntityName:(NSString*)entityName withPredicate:(NSPredicate*)predicate usingContext:(NSManagedObjectContext*)ctx{
+    return [self allObjectsForEntityName:entityName withPredicate:predicate withSortDescriptors:nil usingContext:ctx];
+}
+
+-(NSArray*)allObjectsForEntityName:(NSString*)entityName withPredicate:(NSPredicate*)predicate withSortDescriptors:(NSArray*)sortDescriptios usingContext:(NSManagedObjectContext*)ctx{
+    NSFetchRequest* request = [NSFetchRequest new];
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:entityName inManagedObjectContext:ctx];
+    if (!entityDescription)
+        return nil;
+    
+    [request setEntity:entityDescription];
+    if (predicate)
+        [request setPredicate:predicate];
+    if(sortDescriptios)
+        [request setSortDescriptors:sortDescriptios];
+    
+    NSError* error = nil;
+    NSArray* allObjects = [ctx executeFetchRequest:request error:&error];
+    
+    return allObjects;
 }
 
 #pragma mark - Application's Documents directory

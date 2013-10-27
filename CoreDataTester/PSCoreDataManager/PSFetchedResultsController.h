@@ -42,5 +42,6 @@
 @property(strong) UITableView* tableView;
 @property(weak) id<PSFetchedResultsControllerDelegate> fetchDelegate;
 @property(strong) NSSet* releventKeys;
+@property BOOL reloadAnimated;
 
 @end

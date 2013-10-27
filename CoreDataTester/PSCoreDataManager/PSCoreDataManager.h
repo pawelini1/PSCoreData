@@ -36,6 +36,10 @@
 
 - (NSURL *)applicationDocumentsDirectory;
 
+- (NSArray*)allObjectsForEntityName:(NSString*)entityName usingContext:(NSManagedObjectContext*)ctx;
+- (NSArray*)allObjectsForEntityName:(NSString*)entityName withPredicate:(NSPredicate*)predicate usingContext:(NSManagedObjectContext*)ctx;
+- (NSArray*)allObjectsForEntityName:(NSString*)entityName withPredicate:(NSPredicate*)predicate withSortDescriptors:(NSArray*)sortDescriptios usingContext:(NSManagedObjectContext*)ctx;
+
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *saveManagedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
